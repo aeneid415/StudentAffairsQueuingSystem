@@ -34,13 +34,8 @@ namespace TCPServerNew
             
             serverSocket.Start();
             label1.Text = "Server Started";   
-
-
-
             /*
-
             Console.WriteLine(" >> " + "exit");
-
             Console.ReadLine();
             */
             
@@ -52,15 +47,17 @@ namespace TCPServerNew
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int count = Convert.ToInt32(connectionsCount.Text);
             while (true)
             {
-                String number = "";
+                //String number = "";
                 if (serverSocket.Pending())
                 {
 
                     clientSocket = serverSocket.AcceptTcpClient();
                     listOfClients.Add(clientSocket);
 
+                    /*
                     label6.Text = "Pending Connections";
                     number = listOfClients.Count().ToString();
 
@@ -70,19 +67,24 @@ namespace TCPServerNew
                     //handleClinet client = new handleClinet();
 
                     //client.startClient(clientSocket, Convert.ToString(counter));
+                    */
 
                     
                 }
                 else
                 {
+                    /*
                     label6.Text = "No pending connections";
                     number = listOfClients.Count().ToString();
                     label7.Text = "Number of Conn. Clients: " + number;
+                    */
                 }
 
-                if (listOfClients.Count() == 1)
+                if (listOfClients.Count() == count)
                 {
                     acceptConn.Visible = false;
+                    label7.Visible = false;
+                    connectionsCount.Visible = false;
                     startClient(clientSocket);
                     break;
                 }
@@ -97,10 +99,12 @@ namespace TCPServerNew
             {
                 clientSocket.Close();
                 serverSocket.Stop();
+                System.Environment.Exit(0);
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Environment.Exit(0);
             }
             
         }
@@ -133,24 +137,47 @@ namespace TCPServerNew
         {
             int a = Convert.ToInt32(servingNumber.Text);
             int b = Convert.ToInt32(text);
-            int c = a + b;
-            String newtext = Convert.ToString(c);
-            while (true)
+            if (b != 0)
             {
-                
+                int c = a + b;
+                String newtext = Convert.ToString(c);
+                while (true)
+                {
+
+                    if (this.servingNumber.InvokeRequired)
+                    {
+
+                        SetServingCallback d = new SetServingCallback(SetServingText);
+                        this.Invoke(d, new object[] { text });
+                        return;
+                    }
+                    else
+                    {
+                        if (a == 100)
+                        {
+                            this.servingNumber.Text = "1";
+                            break;
+                        }
+                        else
+                        {
+                            this.servingNumber.Text = newtext;
+                            break;
+                        }
+
+
+                    }
+                }
+            }
+            else
+            {
                 if (this.servingNumber.InvokeRequired)
                 {
-                    
-                    
                     SetServingCallback d = new SetServingCallback(SetServingText);
                     this.Invoke(d, new object[] { text });
-                    return;
                 }
                 else
                 {
-
-                    this.servingNumber.Text = newtext;
-                    break;
+                    this.servingNumber.Text = text;
                 }
             }
         }
@@ -186,8 +213,9 @@ namespace TCPServerNew
                     //Console.WriteLine(" >> " + "From client-" + clNo + dataFromClient);
                     if (newdataFromClient.Equals("0"))
                     {
-                        cubicleNumber.Text = "0";
-                        servingNumber.Text = "0";
+                        //cubicleNumber.Text = "0";
+                        //servingNumber.Text = "0";
+                        SetServingText("0");
                     }
                     else
                     {
@@ -232,6 +260,11 @@ namespace TCPServerNew
         {
             SoundPlayer audio = new SoundPlayer(TCPServerNew.Properties.Resources.ElectronicChime); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
             audio.Play();
+        }
+
+        private void cubicleNumber_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
