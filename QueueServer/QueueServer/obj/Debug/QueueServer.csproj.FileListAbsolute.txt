@@ -1,0 +1,23 @@
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\bin\Debug\QueueServer.exe.config
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\bin\Debug\QueueServer.exe
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\bin\Debug\QueueServer.pdb
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\obj\Debug\QueueServer.csprojAssemblyReference.cache
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\obj\Debug\QueueServer.Properties.Resources.resources
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\obj\Debug\QueueServer.csproj.GenerateResource.cache
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\obj\Debug\QueueServer.csproj.CoreCompileInputs.cache
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\obj\Debug\QueueServer.exe
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\obj\Debug\QueueServer.pdb
+C:\Users\aenei\AppData\Local\Temporary Projects\QueueServer\obj\Debug\QueueServer.QueueServer.resources
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Debug\QueueServer.exe.config
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Debug\QueueServer.exe
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Debug\QueueServer.pdb
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Debug\MySql.Data.dll
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Debug\MySql.Data.xml
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.csprojAssemblyReference.cache
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.QueueServer.resources
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.Properties.Resources.resources
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.csproj.GenerateResource.cache
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.csproj.CoreCompileInputs.cache
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.csproj.CopyComplete
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.exe
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.pdb
