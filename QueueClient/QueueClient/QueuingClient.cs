@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using System.Threading;
 
 namespace QueueClient
 {
     public partial class QueuingClient : Form
     {
         private ArrayList l = new ArrayList();
-        private int currNumber;
+        private int currNumber = 1;
         private String newNumber;
 
         public QueuingClient()
@@ -26,10 +27,6 @@ namespace QueueClient
             currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString());
             QueueDB.connectionClose();
         }
-
-
-
-
 
 
 
@@ -62,5 +59,40 @@ namespace QueueClient
             }
 
         }
+
+        private void editCredentialsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("This is a message", "Testing", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            AccountSettings f = new AccountSettings();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
+        }
+
+        private void clientLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login f = new Login();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TimeSpan r = new TimeSpan(17, 0, 0);
+
+            //TimeSpan s = DateTime.Now.TimeOfDay;
+            //string sr = DateTime.Now.ToString("h:mm:ss tt");
+            //MessageBox.Show(r.ToString() + ' ' + s.ToString(), "Testing", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Thread sf = new Thread(new ThreadStart(ShowStats));
+            sf.Start();
+        }
+
+        private void ShowStats()
+        {
+            QueueClientStat r = new QueueClientStat();
+            r.ShowDialog();
+        }
+
+        
     }
 }

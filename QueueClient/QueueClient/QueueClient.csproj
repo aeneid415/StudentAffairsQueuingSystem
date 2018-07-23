@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountSettings.Designer.cs">
+      <DependentUpon>AccountSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModule.Designer.cs">
+      <DependentUpon>AdminModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Emp.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -58,7 +70,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueClientStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueueClientStat.Designer.cs">
+      <DependentUpon>QueueClientStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueueDB.cs" />
+    <Compile Include="QueueServerAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueueServerAdmin.Designer.cs">
+      <DependentUpon>QueueServerAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueueStat.cs" />
     <Compile Include="QueuingClient.cs">
       <SubType>Form</SubType>
@@ -66,6 +90,12 @@
     <Compile Include="QueuingClient.Designer.cs">
       <DependentUpon>QueuingClient.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountSettings.resx">
+      <DependentUpon>AccountSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminModule.resx">
+      <DependentUpon>AdminModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,6 +109,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QueueClientStat.resx">
+      <DependentUpon>QueueClientStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueueServerAdmin.resx">
+      <DependentUpon>QueueServerAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QueuingClient.resx">
       <DependentUpon>QueuingClient.cs</DependentUpon>
     </EmbeddedResource>

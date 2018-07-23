@@ -12,3 +12,7 @@ C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\MySql.Data.dll
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\MySql.Data.xml
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.csproj.CopyComplete
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueuingClient.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.AccountSettings.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.AdminModule.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueServerAdmin.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueClientStat.resources

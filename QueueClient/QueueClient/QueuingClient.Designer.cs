@@ -35,13 +35,19 @@
             this.currentNumber = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cubID = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QueueClient.Properties.Resources.slu;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(36, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 245);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -66,6 +72,7 @@
             this.clientLogout.TabIndex = 2;
             this.clientLogout.Text = "Logout";
             this.clientLogout.UseVisualStyleBackColor = true;
+            this.clientLogout.Click += new System.EventHandler(this.clientLogout_Click);
             // 
             // label1
             // 
@@ -92,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 279);
+            this.label3.Location = new System.Drawing.Point(33, 300);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 5;
@@ -101,17 +108,58 @@
             // cubID
             // 
             this.cubID.AutoSize = true;
-            this.cubID.Location = new System.Drawing.Point(125, 279);
+            this.cubID.Location = new System.Drawing.Point(125, 300);
             this.cubID.Name = "cubID";
             this.cubID.Size = new System.Drawing.Size(27, 13);
             this.cubID.TabIndex = 6;
             this.cubID.Text = "emp";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.accountToolStripMenuItem,
+            this.statisticsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(396, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editCredentialsToolStripMenuItem});
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Text = "Account";
+            // 
+            // editCredentialsToolStripMenuItem
+            // 
+            this.editCredentialsToolStripMenuItem.Name = "editCredentialsToolStripMenuItem";
+            this.editCredentialsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCredentialsToolStripMenuItem.Text = "Edit Profile";
+            this.editCredentialsToolStripMenuItem.Click += new System.EventHandler(this.editCredentialsToolStripMenuItem_Click);
+            // 
+            // statisticsToolStripMenuItem
+            // 
+            this.statisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolStripMenuItem});
+            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.statisticsToolStripMenuItem.Text = "Statistics";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem.Text = "View...";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            // 
             // QueuingClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 318);
+            this.ClientSize = new System.Drawing.Size(396, 347);
             this.Controls.Add(this.cubID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.currentNumber);
@@ -119,9 +167,13 @@
             this.Controls.Add(this.clientLogout);
             this.Controls.Add(this.callStudent);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "QueuingClient";
             this.Text = "Main Menu (Client)";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +188,10 @@
         private System.Windows.Forms.Label currentNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label cubID;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editCredentialsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
     }
 }

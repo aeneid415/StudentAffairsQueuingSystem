@@ -34,7 +34,7 @@ namespace QueueServer
         {
             ArrayList queue = new ArrayList();
             MySqlDataReader reader = null;
-            string query = "SELECT * FROM osa_queuing.queue_stat ORDER BY timestamp DESC Limit 1";
+            string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
 
             MySqlCommand command = new MySqlCommand(query, mysqlCon);
 

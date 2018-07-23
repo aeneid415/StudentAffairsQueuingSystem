@@ -47,7 +47,10 @@ namespace QueueClient
                     if (count == 1)
                     {
                         MessageBox.Show("Login successful! Welcome, Admin.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+                        this.Hide();
+                        AdminModule f = new AdminModule();
+                        f.Closed += (s, args) => this.Close();
+                        f.Show();
                     }
                     else
                     {

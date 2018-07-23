@@ -37,7 +37,7 @@ namespace QueueClient
             
             ArrayList queue = new ArrayList();
             MySqlDataReader reader = null;
-            string query = "SELECT * FROM osa_queuing.queue_stat ORDER BY timestamp DESC Limit 1";
+            string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
 
             MySqlCommand command = new MySqlCommand(query, mysqlCon);
 
@@ -73,7 +73,7 @@ namespace QueueClient
                 int tr = 0;
                 secondCon.Open();
                 MySqlDataReader reader = null;
-                String query = "SELECT * FROM osa_queuing.queue_stat WHERE cubicle_number = @cubicleID ORDER BY timestamp DESC Limit 1;";
+                String query = "SELECT * FROM osa_queuing.queue_stat WHERE cubicle_number = @cubicleID AND date(timestamp) = date(now())  ORDER BY timestamp DESC Limit 1;";
                 MySqlCommand cmd = new MySqlCommand(query, secondCon);
                 cmd.Parameters.AddWithValue("@cubicleID", cubicleID);
                 reader = cmd.ExecuteReader();
