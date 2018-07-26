@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Txt_ConfPass = new System.Windows.Forms.TextBox();
+            this.Txt_Username = new System.Windows.Forms.TextBox();
+            this.Txt_Password = new System.Windows.Forms.TextBox();
+            this.AccountUpdate = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -65,37 +65,38 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Confirm Password:";
             // 
-            // textBox1
+            // Txt_ConfPass
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '⚫';
-            this.textBox1.Size = new System.Drawing.Size(216, 20);
-            this.textBox1.TabIndex = 3;
+            this.Txt_ConfPass.Location = new System.Drawing.Point(152, 135);
+            this.Txt_ConfPass.Name = "Txt_ConfPass";
+            this.Txt_ConfPass.PasswordChar = '⚫';
+            this.Txt_ConfPass.Size = new System.Drawing.Size(216, 20);
+            this.Txt_ConfPass.TabIndex = 3;
             // 
-            // textBox2
+            // Txt_Username
             // 
-            this.textBox2.Location = new System.Drawing.Point(152, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 20);
-            this.textBox2.TabIndex = 4;
+            this.Txt_Username.Location = new System.Drawing.Point(152, 37);
+            this.Txt_Username.Name = "Txt_Username";
+            this.Txt_Username.Size = new System.Drawing.Size(216, 20);
+            this.Txt_Username.TabIndex = 4;
             // 
-            // textBox3
+            // Txt_Password
             // 
-            this.textBox3.Location = new System.Drawing.Point(152, 85);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '⚫';
-            this.textBox3.Size = new System.Drawing.Size(216, 20);
-            this.textBox3.TabIndex = 5;
+            this.Txt_Password.Location = new System.Drawing.Point(152, 85);
+            this.Txt_Password.Name = "Txt_Password";
+            this.Txt_Password.PasswordChar = '⚫';
+            this.Txt_Password.Size = new System.Drawing.Size(216, 20);
+            this.Txt_Password.TabIndex = 5;
             // 
-            // button1
+            // AccountUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(92, 192);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Update Account";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AccountUpdate.Location = new System.Drawing.Point(92, 192);
+            this.AccountUpdate.Name = "AccountUpdate";
+            this.AccountUpdate.Size = new System.Drawing.Size(104, 23);
+            this.AccountUpdate.TabIndex = 6;
+            this.AccountUpdate.Text = "Update Account";
+            this.AccountUpdate.UseVisualStyleBackColor = true;
+            this.AccountUpdate.Click += new System.EventHandler(this.AccountUpdate_Click);
             // 
             // button2
             // 
@@ -113,10 +114,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 244);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.AccountUpdate);
+            this.Controls.Add(this.Txt_Password);
+            this.Controls.Add(this.Txt_Username);
+            this.Controls.Add(this.Txt_ConfPass);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -134,10 +135,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox Txt_ConfPass;
+        private System.Windows.Forms.TextBox Txt_Username;
+        private System.Windows.Forms.TextBox Txt_Password;
+        private System.Windows.Forms.Button AccountUpdate;
         private System.Windows.Forms.Button button2;
     }
 }

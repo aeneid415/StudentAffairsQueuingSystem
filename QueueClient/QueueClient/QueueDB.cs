@@ -15,6 +15,7 @@ namespace QueueClient
 
         static MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;");
 
+        
         public static void setCon()
         {
             try
@@ -23,7 +24,8 @@ namespace QueueClient
             }
             catch (Exception e)
             {
-                MessageBox.Show("Cannot Connect to Server", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot connect to database server", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
         }
 
@@ -31,15 +33,16 @@ namespace QueueClient
         {
             mysqlCon.Close();
         }
+        
 
-        public static ArrayList gatherData()
+        public static ArrayList gatherData(MySqlConnection con)
         {
             
             ArrayList queue = new ArrayList();
             MySqlDataReader reader = null;
             string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
 
-            MySqlCommand command = new MySqlCommand(query, mysqlCon);
+            MySqlCommand command = new MySqlCommand(query, con);
 
 
             reader = command.ExecuteReader();
@@ -48,7 +51,7 @@ namespace QueueClient
                 QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
                 queue.Add(t);
             }
-            mysqlCon.Close();
+            con.Close();
             return queue;
         }
 
@@ -66,9 +69,9 @@ namespace QueueClient
             }
         }
 
-        public static String getLastServed(String cubicleID)
+        public static String getLastServed(String cubicleID, MySqlConnection secondCon)
         {
-            using (MySqlConnection secondCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            try
             {
                 int tr = 0;
                 secondCon.Open();
@@ -84,6 +87,14 @@ namespace QueueClient
                 String serving_number = tr.ToString();
                 return serving_number;
             }
+            catch(Exception e)
+            {
+                MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+                return null;
+            }   
+                
+            
                 
         }
     }

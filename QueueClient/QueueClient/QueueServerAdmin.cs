@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Collections;
 using MySql.Data.MySqlClient;
 
+
 namespace QueueClient
 {
     public partial class QueueServerAdmin : Form
@@ -36,17 +37,27 @@ namespace QueueClient
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            QueueDB.setCon();
-            l = QueueDB.gatherData();
-            foreach (QueueStat c in l)
-            {
-                x = c.getCubicleNumber();
-                y = c.getServingNumber().ToString();
-            }
-            checkLastNumbers(x);
+            MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;");
 
-            servingNumber.Text = y;
-            QueueDB.connectionClose();
+            try
+            {
+                mysqlCon.Open();
+                l = QueueDB.gatherData(mysqlCon);
+                foreach (QueueStat c in l)
+                {
+                    x = c.getCubicleNumber();
+                    y = c.getServingNumber().ToString();
+                }
+                checkLastNumbers(x);
+
+                servingNumber.Text = y;
+                mysqlCon.Close();
+            }catch(Exception ex)
+            {
+                timer1.Stop();
+                MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
 
         }
 

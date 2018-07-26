@@ -21,3 +21,4 @@ C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.cspro
 C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.csproj.CopyComplete
 C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.exe
 C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.pdb
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Debug\QueueServer.QueueServerWithDesign.resources

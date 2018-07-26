@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.10101F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.00977F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.89251F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 741);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 733);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -94,7 +94,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1258, 520);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1258, 514);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -109,7 +109,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.07979F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.92021F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 514);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 508);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // label12
@@ -128,7 +128,7 @@
             this.servingNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.servingNumber.AutoSize = true;
             this.servingNumber.Font = new System.Drawing.Font("Segoe UI", 99.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.servingNumber.Location = new System.Drawing.Point(238, 221);
+            this.servingNumber.Location = new System.Drawing.Point(238, 217);
             this.servingNumber.Name = "servingNumber";
             this.servingNumber.Size = new System.Drawing.Size(146, 175);
             this.servingNumber.TabIndex = 1;
@@ -136,6 +136,7 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -159,7 +160,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(623, 514);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(623, 508);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // label2
@@ -167,7 +168,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(64, 19);
+            this.label2.Location = new System.Drawing.Point(64, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 65);
             this.label2.TabIndex = 0;
@@ -178,7 +179,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(366, 19);
+            this.label3.Location = new System.Drawing.Point(366, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(202, 65);
             this.label3.TabIndex = 1;
@@ -189,9 +190,9 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(102, 103);
+            this.label4.Location = new System.Drawing.Point(102, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 101);
+            this.label4.Size = new System.Drawing.Size(107, 100);
             this.label4.TabIndex = 2;
             this.label4.Text = "1";
             // 
@@ -200,9 +201,9 @@
             this.cubicleNum1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cubicleNum1.AutoSize = true;
             this.cubicleNum1.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cubicleNum1.Location = new System.Drawing.Point(413, 103);
+            this.cubicleNum1.Location = new System.Drawing.Point(413, 102);
             this.cubicleNum1.Name = "cubicleNum1";
-            this.cubicleNum1.Size = new System.Drawing.Size(107, 101);
+            this.cubicleNum1.Size = new System.Drawing.Size(107, 100);
             this.cubicleNum1.TabIndex = 3;
             this.cubicleNum1.Text = "0";
             // 
@@ -211,9 +212,9 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(102, 205);
+            this.label6.Location = new System.Drawing.Point(102, 203);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 101);
+            this.label6.Size = new System.Drawing.Size(107, 100);
             this.label6.TabIndex = 4;
             this.label6.Text = "2";
             // 
@@ -222,9 +223,9 @@
             this.cubicleNum2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cubicleNum2.AutoSize = true;
             this.cubicleNum2.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cubicleNum2.Location = new System.Drawing.Point(413, 205);
+            this.cubicleNum2.Location = new System.Drawing.Point(413, 203);
             this.cubicleNum2.Name = "cubicleNum2";
-            this.cubicleNum2.Size = new System.Drawing.Size(107, 101);
+            this.cubicleNum2.Size = new System.Drawing.Size(107, 100);
             this.cubicleNum2.TabIndex = 5;
             this.cubicleNum2.Text = "0";
             // 
@@ -233,9 +234,9 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(102, 307);
+            this.label8.Location = new System.Drawing.Point(102, 304);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 101);
+            this.label8.Size = new System.Drawing.Size(107, 100);
             this.label8.TabIndex = 6;
             this.label8.Text = "3";
             // 
@@ -244,9 +245,9 @@
             this.cubicleNum3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cubicleNum3.AutoSize = true;
             this.cubicleNum3.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cubicleNum3.Location = new System.Drawing.Point(413, 307);
+            this.cubicleNum3.Location = new System.Drawing.Point(413, 304);
             this.cubicleNum3.Name = "cubicleNum3";
-            this.cubicleNum3.Size = new System.Drawing.Size(107, 101);
+            this.cubicleNum3.Size = new System.Drawing.Size(107, 100);
             this.cubicleNum3.TabIndex = 7;
             this.cubicleNum3.Text = "0";
             // 
@@ -255,9 +256,9 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(102, 409);
+            this.label10.Location = new System.Drawing.Point(102, 405);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(107, 104);
+            this.label10.Size = new System.Drawing.Size(107, 102);
             this.label10.TabIndex = 8;
             this.label10.Text = "4";
             // 
@@ -266,9 +267,9 @@
             this.cubicleNum4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cubicleNum4.AutoSize = true;
             this.cubicleNum4.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cubicleNum4.Location = new System.Drawing.Point(413, 409);
+            this.cubicleNum4.Location = new System.Drawing.Point(413, 405);
             this.cubicleNum4.Name = "cubicleNum4";
-            this.cubicleNum4.Size = new System.Drawing.Size(107, 104);
+            this.cubicleNum4.Size = new System.Drawing.Size(107, 102);
             this.cubicleNum4.TabIndex = 9;
             this.cubicleNum4.Text = "0";
             // 
@@ -277,7 +278,7 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(315, 638);
+            this.label14.Location = new System.Drawing.Point(315, 631);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(633, 65);
             this.label14.TabIndex = 2;
@@ -291,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 741);
+            this.ClientSize = new System.Drawing.Size(1264, 733);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "QueueServer";
             this.Text = "Queuing System";

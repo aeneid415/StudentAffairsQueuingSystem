@@ -23,9 +23,13 @@ namespace QueueClient
         {
             InitializeComponent();
             cubID.Text = Emp.empId.ToString();
-            QueueDB.setCon();
-            currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString());
-            QueueDB.connectionClose();
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            {
+                currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+
+            }
+
+
         }
 
 
@@ -39,33 +43,52 @@ namespace QueueClient
         {
             using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                QueueDB.setCon();
-                l = QueueDB.gatherData();
-                foreach (QueueStat cd in l)
+                try
                 {
-                    currNumber = cd.getServingNumber() + 1;
-                    if(currNumber == 71)
+                    mysqlCon.Open();
+                    l = QueueDB.gatherData(mysqlCon);
+                    foreach (QueueStat cd in l)
                     {
-                        currNumber = 1;
+                        currNumber = cd.getServingNumber() + 1;
+                        if (currNumber == 71)
+                        {
+                            currNumber = 1;
+                        }
+                        newNumber = currNumber.ToString();
                     }
-                    newNumber = currNumber.ToString();
+                    //DateTime c = new DateTime(DateTimeOffset.Now.ToUnixTimeMilliseconds());
+                    DateTime c = new DateTime(DateTime.Now.Ticks);
+
+                    QueueStat qs = new QueueStat(Emp.empId, currNumber, c);
+                    QueueDB.addQueue(qs);
+                    currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
                 }
-                //DateTime c = new DateTime(DateTimeOffset.Now.ToUnixTimeMilliseconds());
-                DateTime c = new DateTime(DateTime.Now.Ticks);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
                 
-                QueueStat qs = new QueueStat(Emp.empId, currNumber, c);
-                QueueDB.addQueue(qs);
-                currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString());
             }
 
         }
 
         private void editCredentialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("This is a message", "Testing", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            /*MessageBox.Show("This is a message", "Testing", MessageBoxButtons.OK, MessageBoxIcon.Information);
             AccountSettings f = new AccountSettings();
             f.Closed += (s, args) => this.Close();
             f.Show();
+            */
+            Thread sr = new Thread(new ThreadStart(ShowAccountSettings));
+            sr.Start();
+        }
+
+        private void ShowAccountSettings()
+        {
+            AccountSettings f = new AccountSettings();
+            f.ShowDialog();
         }
 
         private void clientLogout_Click(object sender, EventArgs e)
@@ -93,6 +116,16 @@ namespace QueueClient
             r.ShowDialog();
         }
 
-        
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Thread sf = new Thread(new ThreadStart(ShowAbout));
+            sf.Start();
+        }
+
+        private void ShowAbout()
+        {
+            About re = new About();
+            re.ShowDialog();
+        }
     }
 }

@@ -16,3 +16,4 @@ C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.Accou
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.AdminModule.resources
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueServerAdmin.resources
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueClientStat.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.About.resources

@@ -16,7 +16,7 @@ namespace QueueServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QueueServer());
+            Application.Run(new QueueServerWithDesign());
         }
     }
 }

@@ -55,18 +55,23 @@ namespace QueueClient
             MySqlDataReader reader = null;
             using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                mysqlCon.Open();
-                MySqlCommand com = new MySqlCommand(sql, mysqlCon);
-                reader = com.ExecuteReader();
-                while (reader.Read())
+                try
                 {
-                    cubicle1.Text = reader.GetInt32(0).ToString();
-                    cubicle2.Text = reader.GetInt32(1).ToString();
-                    cubicle3.Text = reader.GetInt32(2).ToString();
-                    cubicle4.Text = reader.GetInt32(3).ToString();
+                    mysqlCon.Open();
+                    MySqlCommand com = new MySqlCommand(sql, mysqlCon);
+                    reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        cubicle1.Text = reader.GetInt32(0).ToString();
+                        cubicle2.Text = reader.GetInt32(1).ToString();
+                        cubicle3.Text = reader.GetInt32(2).ToString();
+                        cubicle4.Text = reader.GetInt32(3).ToString();
+                    }
+                    mysqlCon.Close();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                mysqlCon.Close();
-                
             }
         }
 
@@ -98,9 +103,14 @@ namespace QueueClient
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Thread st = new Thread(new ThreadStart(ShowAccountChange));
+            st.Start();
+        }
+
+        private void ShowAccountChange()
+        {
             AccountSettings f = new AccountSettings();
-            f.Closed += (s, args) => this.Close();
-            f.Show();
+            f.ShowDialog();
         }
     }
 }

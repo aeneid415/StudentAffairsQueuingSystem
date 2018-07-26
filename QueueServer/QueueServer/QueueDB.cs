@@ -22,6 +22,7 @@ namespace QueueServer
             }catch(Exception e)
             {
                 MessageBox.Show("Cannot Connect to Server", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
         }
 
@@ -30,13 +31,13 @@ namespace QueueServer
             mysqlCon.Close();
         }
 
-        public static ArrayList gatherData()
+        public static ArrayList gatherData(MySqlConnection tr)
         {
             ArrayList queue = new ArrayList();
             MySqlDataReader reader = null;
             string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
 
-            MySqlCommand command = new MySqlCommand(query, mysqlCon);
+            MySqlCommand command = new MySqlCommand(query, tr);
 
 
             reader = command.ExecuteReader();

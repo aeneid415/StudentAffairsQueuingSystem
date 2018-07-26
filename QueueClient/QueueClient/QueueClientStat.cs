@@ -32,16 +32,25 @@ namespace QueueClient
             int tr = 0;
             using (MySqlConnection secondCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                String sql = "SELECT COUNT(queue_id) FROM queue_stat WHERE cubicle_number = @cubiclenumber AND date(timestamp) = date(now());";
-                secondCon.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, secondCon);
-                cmd.Parameters.AddWithValue("@cubiclenumber", Emp.empId);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                try
                 {
-                    tr = reader.GetInt32(0);
+                    String sql = "SELECT COUNT(queue_id) FROM queue_stat WHERE cubicle_number = @cubiclenumber AND date(timestamp) = date(now());";
+                    secondCon.Open();
+                    MySqlCommand cmd = new MySqlCommand(sql, secondCon);
+                    cmd.Parameters.AddWithValue("@cubiclenumber", Emp.empId);
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        tr = reader.GetInt32(0);
+                    }
+                    CubicleStats.Text = tr.ToString();
                 }
-                CubicleStats.Text = tr.ToString();  
+                catch (Exception ml)
+                {
+                    MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Environment.Exit(Environment.ExitCode);
+                }
+
             }
         }
 
