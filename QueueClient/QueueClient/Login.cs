@@ -16,20 +16,33 @@ namespace QueueClient
         public Login()
         {
             InitializeComponent();
-            
+            if (Emp.IPAddress == null)
+            {
+                IPLabel.Visible = true;
+                txt_IPAddress.Visible = true;
+            }
+            else
+            {
+                txt_IPAddress.Text = Emp.IPAddress;
+            }
+
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            Emp.IPAddress = txt_IPAddress.Text;
+            String ip = Emp.IPAddress;
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
                 try
                 {
                     int count = 0;
                     int id = 0;
+                    String firstname = "";
+                    String lastname = "";
                     mysqlCon.Open();
                     MySqlDataReader reader = null;
-                    string query = "SELECT account_id, username, password, department FROM accounts WHERE (username = @username AND password = @password AND department = @department);";
+                    string query = "SELECT account_id, username, password, first_name, last_name, department FROM accounts WHERE (username = @username AND password = @password AND department = @department);";
 
                     MySqlCommand command = new MySqlCommand(query, mysqlCon);
                     command.Parameters.AddWithValue("@username", txt_username.Text);
@@ -40,6 +53,8 @@ namespace QueueClient
                     while (reader.Read())
                     {
                         id = reader.GetInt32(0);
+                        firstname = reader.GetString(3);
+                        lastname = reader.GetString(4);
                         Emp.empId = id;
                         count = count + 1;
                     }
@@ -48,7 +63,7 @@ namespace QueueClient
                     {
                         if (count == 1)
                         {
-                            MessageBox.Show("Login successful! Welcome, Admin.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Login successful! Welcome, " + firstname + " " + lastname + ".", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Hide();
                             AdminModule f = new AdminModule();
                             f.Closed += (s, args) => this.Close();
@@ -64,7 +79,7 @@ namespace QueueClient
                     {
                         if (count == 1)
                         {
-                            MessageBox.Show("You have successfully logged in. Welcome, Cubicle " + id, "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("You have successfully logged in. Welcome, " + firstname + " " + lastname + ", presiding over Cubicle " + id + ".", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Hide();
                             QueuingClient f = new QueuingClient();
                             f.Closed += (s, args) => this.Close();
@@ -84,7 +99,7 @@ namespace QueueClient
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Cannot connect to database server.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid IP Address. Please try again.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
 

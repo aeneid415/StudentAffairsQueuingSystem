@@ -37,6 +37,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_department = new System.Windows.Forms.ComboBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.IPLabel = new System.Windows.Forms.Label();
+            this.txt_IPAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +123,7 @@
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(153, 296);
+            this.loginButton.Location = new System.Drawing.Point(153, 345);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(104, 23);
             this.loginButton.TabIndex = 8;
@@ -129,11 +131,33 @@
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
+            // IPLabel
+            // 
+            this.IPLabel.AutoSize = true;
+            this.IPLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IPLabel.Location = new System.Drawing.Point(44, 282);
+            this.IPLabel.Name = "IPLabel";
+            this.IPLabel.Size = new System.Drawing.Size(114, 17);
+            this.IPLabel.TabIndex = 9;
+            this.IPLabel.Text = "Server IP Address:";
+            this.IPLabel.Visible = false;
+            // 
+            // txt_IPAddress
+            // 
+            this.txt_IPAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_IPAddress.Location = new System.Drawing.Point(164, 279);
+            this.txt_IPAddress.Name = "txt_IPAddress";
+            this.txt_IPAddress.Size = new System.Drawing.Size(213, 25);
+            this.txt_IPAddress.TabIndex = 10;
+            this.txt_IPAddress.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 358);
+            this.ClientSize = new System.Drawing.Size(419, 402);
+            this.Controls.Add(this.txt_IPAddress);
+            this.Controls.Add(this.IPLabel);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.txt_department);
             this.Controls.Add(this.label5);
@@ -162,6 +186,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox txt_department;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Label IPLabel;
+        private System.Windows.Forms.TextBox txt_IPAddress;
     }
 }
 

@@ -12,61 +12,69 @@ namespace QueueClient
 {
     public class QueueDB
     {
+        static String ip = Emp.IPAddress;
 
-        static MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;");
 
         
-        public static void setCon()
-        {
-            try
-            {
-                mysqlCon.Open();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Cannot connect to database server", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
-        }
-
-        public static void connectionClose()
-        {
-            mysqlCon.Close();
-        }
+       
         
 
         public static ArrayList gatherData(MySqlConnection con)
         {
-            
-            ArrayList queue = new ArrayList();
-            MySqlDataReader reader = null;
-            string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
-
-            MySqlCommand command = new MySqlCommand(query, con);
-
-
-            reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
-                queue.Add(t);
+                ArrayList queue = new ArrayList();
+                MySqlDataReader reader = null;
+                string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
+
+                MySqlCommand command = new MySqlCommand(query, con);
+
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
+                    queue.Add(t);
+                }
+                
+                return queue;
+            }catch (Exception)
+            {
+                MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+
             }
-            con.Close();
-            return queue;
+            finally
+            {
+                con.Close();              
+            }
+
+
         }
 
         public static void addQueue(QueueStat rs)
         {
-            using (MySqlConnection secondCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
-            {
-                secondCon.Open();
-                String sql = "INSERT INTO queue_stat(cubicle_number, serving_number, timestamp) VALUES (@cubicle,@serving,@timestamp)";
-                MySqlCommand cmd = new MySqlCommand(sql, secondCon);
-                cmd.Parameters.AddWithValue("@cubicle", rs.getCubicleNumber());
-                cmd.Parameters.AddWithValue("@serving", rs.getServingNumber());
-                cmd.Parameters.AddWithValue("@timeStamp", rs.getTimeStamp());
-                cmd.ExecuteNonQuery();
+            using (MySqlConnection secondCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;")) { 
+                try
+                {
+                    secondCon.Open();
+                    String sql = "INSERT INTO queue_stat(cubicle_number, serving_number, timestamp) VALUES (@cubicle,@serving,@timestamp)";
+                    MySqlCommand cmd = new MySqlCommand(sql, secondCon);
+                    cmd.Parameters.AddWithValue("@cubicle", rs.getCubicleNumber());
+                    cmd.Parameters.AddWithValue("@serving", rs.getServingNumber());
+                    cmd.Parameters.AddWithValue("@timeStamp", rs.getTimeStamp());
+                    cmd.ExecuteNonQuery();
+                } catch (Exception)
+                {
+                    MessageBox.Show("Cannot insert!", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    secondCon.Close();
+                }
             }
+            
+            
         }
 
         public static String getLastServed(String cubicleID, MySqlConnection secondCon)
@@ -74,7 +82,7 @@ namespace QueueClient
             try
             {
                 int tr = 0;
-                secondCon.Open();
+                //secondCon.Open();
                 MySqlDataReader reader = null;
                 String query = "SELECT * FROM osa_queuing.queue_stat WHERE cubicle_number = @cubicleID AND date(timestamp) = date(now())  ORDER BY timestamp DESC Limit 1;";
                 MySqlCommand cmd = new MySqlCommand(query, secondCon);

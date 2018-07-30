@@ -14,6 +14,8 @@ namespace QueueClient
 {
     public partial class AdminModule : Form
     {
+        static String ip = Emp.IPAddress;
+
         public AdminModule()
         {
             InitializeComponent();
@@ -47,13 +49,14 @@ namespace QueueClient
 
         private void SetCubicleNumbers()
         {
+            
             String sql = "SELECT (SELECT COUNT(queue_id) FROM queue_stat WHERE cubicle_number = 1 " +
                 " AND date(timestamp) = date(now())) AS 'cubicle1', (SELECT COUNT(queue_id) FROM queue_stat WHERE cubicle_number = 2 " +
                 "AND date(timestamp) = date(now())) AS 'cubicle2', (SELECT COUNT(queue_id) FROM queue_stat WHERE cubicle_number = 3 " +
                 "AND date(timestamp) = date(now())) AS 'cubicle3', (SELECT COUNT(queue_id) FROM queue_stat WHERE cubicle_number = 4 " +
                 "AND date(timestamp) = date(now())) As 'cubicle4', DATE(NOW()) AS date;";
             MySqlDataReader reader = null;
-            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
                 try
                 {
@@ -90,7 +93,7 @@ namespace QueueClient
 
         private void ShowServer()
         {
-            QueueServerAdmin r = new QueueServerAdmin();
+            QueueClientServerWithDesign r = new QueueClientServerWithDesign();
             r.ShowDialog();
             //Application.Run(new QueueServerAdmin());
         }
@@ -111,6 +114,30 @@ namespace QueueClient
         {
             AccountSettings f = new AccountSettings();
             f.ShowDialog();
+        }
+
+        private void ShowAccountCreate()
+        {
+            AccountCreation f = new AccountCreation();
+            f.ShowDialog();
+        }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread sq = new Thread(new ThreadStart(ShowAccountCreate));
+            sq.Start();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread sf = new Thread(new ThreadStart(ShowAbout));
+            sf.Start();
+        }
+
+        private void ShowAbout()
+        {
+            About re = new About();
+            re.ShowDialog();
         }
     }
 }

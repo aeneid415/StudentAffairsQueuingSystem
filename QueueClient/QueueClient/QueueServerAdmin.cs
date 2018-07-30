@@ -19,6 +19,7 @@ namespace QueueClient
         private static String y;
         private static String z;
         private static ArrayList l = new ArrayList();
+        static String ip = Emp.IPAddress;
 
         public QueueServerAdmin()
         {
@@ -37,7 +38,7 @@ namespace QueueClient
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;");
+            MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;");
 
             try
             {
@@ -63,7 +64,7 @@ namespace QueueClient
 
         private void checkLastNumbers(int x)
         {
-            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
                 mysqlCon.Open();
                 MySqlDataReader reader = null;

@@ -18,13 +18,15 @@ namespace QueueClient
         private ArrayList l = new ArrayList();
         private int currNumber = 1;
         private String newNumber;
+        private static String ip = Emp.IPAddress;
 
         public QueuingClient()
         {
             InitializeComponent();
             cubID.Text = Emp.empId.ToString();
-            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
+                mysqlCon.Open();
                 currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
 
             }
@@ -39,12 +41,13 @@ namespace QueueClient
 
         }
 
-        private void callStudent_Click(object sender, EventArgs e)
+        private async void callStudent_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
                 try
                 {
+                    callStudent.Enabled = false;
                     mysqlCon.Open();
                     l = QueueDB.gatherData(mysqlCon);
                     foreach (QueueStat cd in l)
@@ -60,13 +63,20 @@ namespace QueueClient
                     DateTime c = new DateTime(DateTime.Now.Ticks);
 
                     QueueStat qs = new QueueStat(Emp.empId, currNumber, c);
+                    mysqlCon.Open();
                     QueueDB.addQueue(qs);
                     currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+                    await Task.Delay(5000);
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
+                }
+                finally
+                {
+                    callStudent.Enabled = true;
                 }
                 
             }

@@ -13,6 +13,7 @@ namespace QueueClient
 {
     public partial class QueueClientStat : Form
     {
+        static String ip = Emp.IPAddress;
         public QueueClientStat()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace QueueClient
         {
             MySqlDataReader reader = null;
             int tr = 0;
-            using (MySqlConnection secondCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            using (MySqlConnection secondCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
                 try
                 {

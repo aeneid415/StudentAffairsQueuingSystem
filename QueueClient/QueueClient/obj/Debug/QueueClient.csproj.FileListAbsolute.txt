@@ -17,3 +17,5 @@ C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.Admin
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueServerAdmin.resources
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueClientStat.resources
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.About.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.AccountCreation.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueClientServerWithDesign.resources

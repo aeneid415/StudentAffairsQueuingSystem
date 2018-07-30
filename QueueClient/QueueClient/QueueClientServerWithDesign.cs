@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using System.Collections;
 using MySql.Data.MySqlClient;
 
-namespace QueueServer
+namespace QueueClient
 {
-    public partial class QueueServerWithDesign : Form
+    public partial class QueueClientServerWithDesign : Form
     {
         Color maincolor = Color.FromArgb(143, 180, 239);
         Color secondarycolor = Color.FromArgb(255, 255, 255);
@@ -22,29 +22,14 @@ namespace QueueServer
         private static String y;
         private static String z;
         private static ArrayList l = new ArrayList();
+        private static String ip = Emp.IPAddress;
 
-
-        public QueueServerWithDesign()
+        public QueueClientServerWithDesign()
         {
-            InitializeComponent();           
+            InitializeComponent();
             tableLayoutPanel1.BackColor = maincolor;
             InitTimer();
         }
-
-        /*private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
-        {
-            
-            
-            var brush = new SolidBrush(myrgbColor);
-            if (e.Row == 0 && e.Column == 0)
-            {
-                e.Graphics.FillRectangle(brush, e.CellBounds);
-            }
-            if (e.Row == 2 && e.Column == 0)
-            {
-                e.Graphics.FillRectangle(brush, e.CellBounds);
-            }
-        }*/
 
         private void tableLayoutPanel2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
@@ -69,7 +54,7 @@ namespace QueueServer
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;");
+            MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;");
 
             try
             {
@@ -83,7 +68,7 @@ namespace QueueServer
                     y = c.getServingNumber().ToString();
                 }
                 checkLastNumbers(x);
-                servingNumber.ForeColor = servingNumber.ForeColor == Color.White ? blinker : Color.White; 
+                servingNumber.ForeColor = servingNumber.ForeColor == Color.White ? blinker : Color.White;
                 cubicleNumber.Text = "Cubicle " + x.ToString();
                 servingNumber.Text = y;
                 mysqlCon.Close();
@@ -132,5 +117,6 @@ namespace QueueServer
 
             }
         }
+
     }
 }

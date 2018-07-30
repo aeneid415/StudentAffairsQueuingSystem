@@ -55,6 +55,12 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="AccountCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountCreation.Designer.cs">
+      <DependentUpon>AccountCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="AccountSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueClientServerWithDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueueClientServerWithDesign.Designer.cs">
+      <DependentUpon>QueueClientServerWithDesign.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueueClientStat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +111,9 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AccountCreation.resx">
+      <DependentUpon>AccountCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AccountSettings.resx">
       <DependentUpon>AccountSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +133,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QueueClientServerWithDesign.resx">
+      <DependentUpon>QueueClientServerWithDesign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QueueClientStat.resx">
       <DependentUpon>QueueClientStat.cs</DependentUpon>
     </EmbeddedResource>
