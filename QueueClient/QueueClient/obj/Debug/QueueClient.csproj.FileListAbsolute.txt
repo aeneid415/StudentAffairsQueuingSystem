@@ -19,3 +19,4 @@ C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.Queue
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.About.resources
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.AccountCreation.resources
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.QueueClientServerWithDesign.resources
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.ForgetPassword.resources

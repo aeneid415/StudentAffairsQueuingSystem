@@ -52,6 +52,40 @@ namespace QueueClient
 
         }
 
+        public static ArrayList gatherDataUnion(MySqlConnection con)
+        {
+            try
+            {
+                ArrayList queue = new ArrayList();
+                MySqlDataReader reader = null;
+                string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
+
+                MySqlCommand command = new MySqlCommand(query, con);
+
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
+                    queue.Add(t);
+                }
+
+                return queue;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+        }
+
         public static void addQueue(QueueStat rs)
         {
             using (MySqlConnection secondCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;")) { 

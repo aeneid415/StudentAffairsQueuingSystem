@@ -20,7 +20,6 @@ namespace QueueServer
         Color black = Color.Black;
         private static int x;
         private static String y;
-        private static String z;
         private static ArrayList l = new ArrayList();
 
 
@@ -82,7 +81,7 @@ namespace QueueServer
                     x = c.getCubicleNumber();
                     y = c.getServingNumber().ToString();
                 }
-                checkLastNumbers(x);
+                checkLastNumbers();
                 servingNumber.ForeColor = servingNumber.ForeColor == Color.White ? blinker : Color.White; 
                 cubicleNumber.Text = "Cubicle " + x.ToString();
                 servingNumber.Text = y;
@@ -96,39 +95,45 @@ namespace QueueServer
             }
         }
 
-        private void checkLastNumbers(int x)
+        private void checkLastNumbers()
         {
             using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                mysqlCon.Open();
-                MySqlDataReader reader = null;
-                string query = "SELECT * FROM osa_queuing.queue_stat WHERE cubicle_number = @cubiclenumber AND date(timestamp) = date(now()) ORDER BY timestamp DESC LIMIT 1;";
-
-                MySqlCommand command = new MySqlCommand(query, mysqlCon);
-                command.Parameters.AddWithValue("@cubiclenumber", x);
-                reader = command.ExecuteReader();
-                while (reader.Read())
+                for(int i = 1; i <= 4; i++)
                 {
-                    z = reader.GetInt32(2).ToString();
-                }
+                    String z = "0";
+                    mysqlCon.Open();
+                    MySqlDataReader reader = null;
+                    string query = "SELECT * FROM osa_queuing.queue_stat WHERE cubicle_number = @cubiclenumber AND date(timestamp) = date(now()) ORDER BY timestamp DESC LIMIT 1;";
 
-                switch (x)
-                {
-                    case 1:
-                        cubicleNum1.Text = z;
-                        break;
-                    case 2:
-                        cubicleNum2.Text = z;
-                        break;
-                    case 3:
-                        cubicleNum3.Text = z;
-                        break;
-                    case 4:
-                        cubicleNum4.Text = z;
-                        break;
-                    default:
-                        break;
+                    MySqlCommand command = new MySqlCommand(query, mysqlCon);
+                    command.Parameters.AddWithValue("@cubiclenumber", i);
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        z = reader.GetInt32(2).ToString();
+                    }
+
+                    switch (i)
+                    {
+                        case 1:
+                            cubicleNum1.Text = z;
+                            break;
+                        case 2:
+                            cubicleNum2.Text = z;
+                            break;
+                        case 3:
+                            cubicleNum3.Text = z;
+                            break;
+                        case 4:
+                            cubicleNum4.Text = z;
+                            break;
+                        default:
+                            break;
+                    }
+                    mysqlCon.Close();
                 }
+                
 
             }
         }

@@ -39,10 +39,12 @@
             this.editCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.NextButton = new System.Windows.Forms.Button();
+            this.PrevButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +61,7 @@
             // 
             // clientLogout
             // 
-            this.clientLogout.Location = new System.Drawing.Point(251, 89);
+            this.clientLogout.Location = new System.Drawing.Point(251, 179);
             this.clientLogout.Name = "clientLogout";
             this.clientLogout.Size = new System.Drawing.Size(101, 23);
             this.clientLogout.TabIndex = 2;
@@ -71,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(248, 167);
+            this.label1.Location = new System.Drawing.Point(248, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 3;
@@ -80,11 +82,10 @@
             // 
             // currentNumber
             // 
-            this.currentNumber.AutoSize = true;
             this.currentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentNumber.Location = new System.Drawing.Point(280, 200);
+            this.currentNumber.Location = new System.Drawing.Point(251, 259);
             this.currentNumber.Name = "currentNumber";
-            this.currentNumber.Size = new System.Drawing.Size(36, 39);
+            this.currentNumber.Size = new System.Drawing.Size(101, 54);
             this.currentNumber.TabIndex = 4;
             this.currentNumber.Text = "0";
             this.currentNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,16 +150,6 @@
             this.viewToolStripMenuItem.Text = "View...";
             this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::QueueClient.Properties.Resources.slu;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 245);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,21 +162,54 @@
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QueueClient.Properties.Resources.slu;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(157, 245);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // NextButton
+            // 
+            this.NextButton.Enabled = false;
+            this.NextButton.Location = new System.Drawing.Point(251, 133);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(101, 23);
+            this.NextButton.TabIndex = 8;
+            this.NextButton.Text = "Next Number";
+            this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
+            // 
+            // PrevButton
+            // 
+            this.PrevButton.Location = new System.Drawing.Point(251, 84);
+            this.PrevButton.Name = "PrevButton";
+            this.PrevButton.Size = new System.Drawing.Size(101, 23);
+            this.PrevButton.TabIndex = 9;
+            this.PrevButton.Text = "Recall Number";
+            this.PrevButton.UseVisualStyleBackColor = true;
+            this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
             // QueuingClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 347);
+            this.Controls.Add(this.PrevButton);
+            this.Controls.Add(this.NextButton);
             this.Controls.Add(this.cubID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.currentNumber);
@@ -222,5 +246,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+        private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.Button PrevButton;
     }
 }

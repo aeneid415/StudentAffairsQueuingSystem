@@ -24,6 +24,9 @@ namespace QueueClient
             else
             {
                 txt_IPAddress.Text = Emp.IPAddress;
+                //this.Size = new Size(435, 390);
+                //loginButton.Location = new Point(153, 295);
+
             }
 
         }
@@ -106,6 +109,12 @@ namespace QueueClient
 
             }
 
+        }
+
+        private void lbl_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgetPassword f = new ForgetPassword();
+            f.ShowDialog();
         }
     }
 }

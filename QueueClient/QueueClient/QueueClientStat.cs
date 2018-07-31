@@ -24,7 +24,7 @@ namespace QueueClient
 
         private void CloseStatistics_Click(object sender, EventArgs e)
         {
-            Application.ExitThread();
+            this.Close();
         }
 
         private void UpdateNumber()
@@ -46,7 +46,7 @@ namespace QueueClient
                     }
                     CubicleStats.Text = tr.ToString();
                 }
-                catch (Exception ml)
+                catch (Exception)
                 {
                     MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(Environment.ExitCode);

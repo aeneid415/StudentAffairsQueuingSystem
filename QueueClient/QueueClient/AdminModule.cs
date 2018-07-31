@@ -106,8 +106,9 @@ namespace QueueClient
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Thread st = new Thread(new ThreadStart(ShowAccountChange));
-            st.Start();
+            //Thread st = new Thread(new ThreadStart(ShowAccountChange));
+            //st.Start();
+            ShowAccountChange();
         }
 
         private void ShowAccountChange()
@@ -124,14 +125,12 @@ namespace QueueClient
 
         private void createToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Thread sq = new Thread(new ThreadStart(ShowAccountCreate));
-            sq.Start();
+            ShowAccountCreate();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Thread sf = new Thread(new ThreadStart(ShowAbout));
-            sf.Start();
+            ShowAbout();
         }
 
         private void ShowAbout()

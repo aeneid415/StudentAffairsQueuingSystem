@@ -39,6 +39,7 @@
             this.loginButton = new System.Windows.Forms.Button();
             this.IPLabel = new System.Windows.Forms.Label();
             this.txt_IPAddress = new System.Windows.Forms.TextBox();
+            this.lbl_ForgotPassword = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -123,9 +124,9 @@
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(153, 345);
+            this.loginButton.Location = new System.Drawing.Point(148, 355);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(104, 23);
+            this.loginButton.Size = new System.Drawing.Size(110, 23);
             this.loginButton.TabIndex = 8;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -151,11 +152,23 @@
             this.txt_IPAddress.TabIndex = 10;
             this.txt_IPAddress.Visible = false;
             // 
+            // lbl_ForgotPassword
+            // 
+            this.lbl_ForgotPassword.AutoSize = true;
+            this.lbl_ForgotPassword.Location = new System.Drawing.Point(157, 327);
+            this.lbl_ForgotPassword.Name = "lbl_ForgotPassword";
+            this.lbl_ForgotPassword.Size = new System.Drawing.Size(92, 13);
+            this.lbl_ForgotPassword.TabIndex = 11;
+            this.lbl_ForgotPassword.TabStop = true;
+            this.lbl_ForgotPassword.Text = "Forgot Password?";
+            this.lbl_ForgotPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_ForgotPassword_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 402);
+            this.ClientSize = new System.Drawing.Size(419, 401);
+            this.Controls.Add(this.lbl_ForgotPassword);
             this.Controls.Add(this.txt_IPAddress);
             this.Controls.Add(this.IPLabel);
             this.Controls.Add(this.loginButton);
@@ -188,6 +201,7 @@
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label IPLabel;
         private System.Windows.Forms.TextBox txt_IPAddress;
+        private System.Windows.Forms.LinkLabel lbl_ForgotPassword;
     }
 }
 
