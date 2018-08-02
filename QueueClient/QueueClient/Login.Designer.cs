@@ -88,7 +88,7 @@
             this.txt_username.Location = new System.Drawing.Point(143, 150);
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(234, 25);
-            this.txt_username.TabIndex = 4;
+            this.txt_username.TabIndex = 1;
             // 
             // txt_password
             // 
@@ -97,7 +97,7 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '⚫';
             this.txt_password.Size = new System.Drawing.Size(234, 25);
-            this.txt_password.TabIndex = 5;
+            this.txt_password.TabIndex = 2;
             // 
             // label5
             // 
@@ -119,7 +119,7 @@
             this.txt_department.Location = new System.Drawing.Point(143, 237);
             this.txt_department.Name = "txt_department";
             this.txt_department.Size = new System.Drawing.Size(234, 25);
-            this.txt_department.TabIndex = 7;
+            this.txt_department.TabIndex = 3;
             // 
             // loginButton
             // 
@@ -127,7 +127,7 @@
             this.loginButton.Location = new System.Drawing.Point(148, 355);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(110, 23);
-            this.loginButton.TabIndex = 8;
+            this.loginButton.TabIndex = 6;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -149,16 +149,16 @@
             this.txt_IPAddress.Location = new System.Drawing.Point(164, 279);
             this.txt_IPAddress.Name = "txt_IPAddress";
             this.txt_IPAddress.Size = new System.Drawing.Size(213, 25);
-            this.txt_IPAddress.TabIndex = 10;
+            this.txt_IPAddress.TabIndex = 4;
             this.txt_IPAddress.Visible = false;
             // 
             // lbl_ForgotPassword
             // 
             this.lbl_ForgotPassword.AutoSize = true;
-            this.lbl_ForgotPassword.Location = new System.Drawing.Point(157, 327);
+            this.lbl_ForgotPassword.Location = new System.Drawing.Point(157, 325);
             this.lbl_ForgotPassword.Name = "lbl_ForgotPassword";
             this.lbl_ForgotPassword.Size = new System.Drawing.Size(92, 13);
-            this.lbl_ForgotPassword.TabIndex = 11;
+            this.lbl_ForgotPassword.TabIndex = 5;
             this.lbl_ForgotPassword.TabStop = true;
             this.lbl_ForgotPassword.Text = "Forgot Password?";
             this.lbl_ForgotPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_ForgotPassword_LinkClicked);

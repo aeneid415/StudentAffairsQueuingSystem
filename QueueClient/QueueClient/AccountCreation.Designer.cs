@@ -47,7 +47,7 @@
             this.button2.Location = new System.Drawing.Point(227, 280);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
+            this.button2.TabIndex = 7;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -57,7 +57,7 @@
             this.AccountCreate.Location = new System.Drawing.Point(97, 280);
             this.AccountCreate.Name = "AccountCreate";
             this.AccountCreate.Size = new System.Drawing.Size(104, 23);
-            this.AccountCreate.TabIndex = 14;
+            this.AccountCreate.TabIndex = 6;
             this.AccountCreate.Text = "Create Account";
             this.AccountCreate.UseVisualStyleBackColor = true;
             this.AccountCreate.Click += new System.EventHandler(this.AccountCreate_Click);
@@ -68,14 +68,14 @@
             this.Txt_Password.Name = "Txt_Password";
             this.Txt_Password.PasswordChar = '⚫';
             this.Txt_Password.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Password.TabIndex = 13;
+            this.Txt_Password.TabIndex = 4;
             // 
             // Txt_Username
             // 
             this.Txt_Username.Location = new System.Drawing.Point(157, 125);
             this.Txt_Username.Name = "Txt_Username";
             this.Txt_Username.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Username.TabIndex = 12;
+            this.Txt_Username.TabIndex = 3;
             // 
             // Txt_ConfPass
             // 
@@ -83,7 +83,7 @@
             this.Txt_ConfPass.Name = "Txt_ConfPass";
             this.Txt_ConfPass.PasswordChar = '⚫';
             this.Txt_ConfPass.Size = new System.Drawing.Size(216, 20);
-            this.Txt_ConfPass.TabIndex = 11;
+            this.Txt_ConfPass.TabIndex = 5;
             // 
             // label3
             // 
@@ -126,14 +126,14 @@
             this.Txt_Lastname.Location = new System.Drawing.Point(157, 76);
             this.Txt_Lastname.Name = "Txt_Lastname";
             this.Txt_Lastname.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Lastname.TabIndex = 18;
+            this.Txt_Lastname.TabIndex = 2;
             // 
             // Txt_Firstname
             // 
             this.Txt_Firstname.Location = new System.Drawing.Point(157, 30);
             this.Txt_Firstname.Name = "Txt_Firstname";
             this.Txt_Firstname.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Firstname.TabIndex = 17;
+            this.Txt_Firstname.TabIndex = 1;
             // 
             // label4
             // 

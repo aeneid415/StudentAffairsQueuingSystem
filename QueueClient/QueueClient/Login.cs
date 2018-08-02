@@ -24,9 +24,9 @@ namespace QueueClient
             else
             {
                 txt_IPAddress.Text = Emp.IPAddress;
-                //this.Size = new Size(435, 390);
-                //loginButton.Location = new Point(153, 295);
-
+                this.Size = new Size(435, 390);
+                loginButton.Location = new Point(148, 310);
+                lbl_ForgotPassword.Location = new Point(157, 280);
             }
 
         }

@@ -11,6 +11,7 @@ namespace QueueClient
         int cubicle_number;
         int serving_number;
         DateTime timestamp;
+        int ActivationFlag;
 
         public QueueStat()
         {
@@ -23,12 +24,21 @@ namespace QueueClient
             this.serving_number = s;
         }
 
+        public QueueStat(int n, int s, int fl)
+        {
+            this.cubicle_number = n;
+            this.serving_number = s;
+            this.ActivationFlag = fl;
+        }
+
         public QueueStat(int n, int s, DateTime t)
         {
             this.cubicle_number = n;
             this.serving_number = s;
             this.timestamp = t;
         }
+
+       
 
         public int getCubicleNumber()
         {
@@ -43,6 +53,11 @@ namespace QueueClient
         public DateTime getTimeStamp()
         {
             return this.timestamp;
+        }
+
+        public int getFlag()
+        {
+            return this.ActivationFlag;
         }
     }
 }

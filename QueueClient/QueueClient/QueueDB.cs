@@ -31,12 +31,21 @@ namespace QueueClient
 
 
                 reader = command.ExecuteReader();
-                while (reader.Read())
+                if (!reader.HasRows)
                 {
-                    QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
+                    QueueStat t = new QueueStat(0, 0);
                     queue.Add(t);
                 }
-                
+                else
+                {
+                    while (reader.Read())
+                    {
+                        QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(4));
+                        queue.Add(t);
+                    }
+
+                }
+
                 return queue;
             }catch (Exception)
             {
@@ -52,13 +61,12 @@ namespace QueueClient
 
         }
 
-        public static ArrayList gatherDataUnion(MySqlConnection con)
+        public static ArrayList gatherData(MySqlConnection con, String query)
         {
             try
             {
                 ArrayList queue = new ArrayList();
                 MySqlDataReader reader = null;
-                string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
 
                 MySqlCommand command = new MySqlCommand(query, con);
 
@@ -66,15 +74,15 @@ namespace QueueClient
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
+                    QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(4));
                     queue.Add(t);
                 }
 
                 return queue;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
 
             }

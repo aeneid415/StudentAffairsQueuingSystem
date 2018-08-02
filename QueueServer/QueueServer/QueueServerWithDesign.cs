@@ -111,7 +111,15 @@ namespace QueueServer
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        z = reader.GetInt32(2).ToString();
+                        if(reader.GetInt32(4) == 1)
+                        {
+                            z = "N/A";
+                        }
+                        else
+                        {
+                            z = reader.GetInt32(2).ToString();
+                        }
+                        
                     }
 
                     switch (i)

@@ -45,6 +45,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.NextButton = new System.Windows.Forms.Button();
             this.PrevButton = new System.Windows.Forms.Button();
+            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +125,9 @@
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editCredentialsToolStripMenuItem});
+            this.editCredentialsToolStripMenuItem,
+            this.deactivateToolStripMenuItem,
+            this.activateToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
@@ -131,7 +135,7 @@
             // editCredentialsToolStripMenuItem
             // 
             this.editCredentialsToolStripMenuItem.Name = "editCredentialsToolStripMenuItem";
-            this.editCredentialsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.editCredentialsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCredentialsToolStripMenuItem.Text = "Edit Profile";
             this.editCredentialsToolStripMenuItem.Click += new System.EventHandler(this.editCredentialsToolStripMenuItem_Click);
             // 
@@ -203,6 +207,20 @@
             this.PrevButton.UseVisualStyleBackColor = true;
             this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
+            // deactivateToolStripMenuItem
+            // 
+            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deactivateToolStripMenuItem.Text = "Deactivate";
+            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
+            // 
+            // activateToolStripMenuItem
+            // 
+            this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
+            this.activateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.activateToolStripMenuItem.Text = "Activate";
+            this.activateToolStripMenuItem.Click += new System.EventHandler(this.activateToolStripMenuItem_Click);
+            // 
             // QueuingClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,5 +266,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Button PrevButton;
+        private System.Windows.Forms.ToolStripMenuItem deactivateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activateToolStripMenuItem;
     }
 }

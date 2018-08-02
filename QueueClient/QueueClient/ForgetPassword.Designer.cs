@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.AccountUpdate = new System.Windows.Forms.Button();
             this.Txt_Password = new System.Windows.Forms.TextBox();
             this.Txt_ConfPass = new System.Windows.Forms.TextBox();
@@ -40,24 +40,25 @@
             this.Txt_ServerIP = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button2
+            // closeButton
             // 
-            this.button2.Location = new System.Drawing.Point(230, 227);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.closeButton.Location = new System.Drawing.Point(230, 230);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 6;
+            this.closeButton.Text = "Cancel";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // AccountUpdate
             // 
-            this.AccountUpdate.Location = new System.Drawing.Point(100, 227);
+            this.AccountUpdate.Location = new System.Drawing.Point(100, 230);
             this.AccountUpdate.Name = "AccountUpdate";
             this.AccountUpdate.Size = new System.Drawing.Size(104, 23);
-            this.AccountUpdate.TabIndex = 14;
+            this.AccountUpdate.TabIndex = 5;
             this.AccountUpdate.Text = "Change Password";
             this.AccountUpdate.UseVisualStyleBackColor = true;
+            this.AccountUpdate.Click += new System.EventHandler(this.AccountUpdate_Click);
             // 
             // Txt_Password
             // 
@@ -65,7 +66,7 @@
             this.Txt_Password.Name = "Txt_Password";
             this.Txt_Password.PasswordChar = '⚫';
             this.Txt_Password.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Password.TabIndex = 13;
+            this.Txt_Password.TabIndex = 2;
             // 
             // Txt_ConfPass
             // 
@@ -73,7 +74,7 @@
             this.Txt_ConfPass.Name = "Txt_ConfPass";
             this.Txt_ConfPass.PasswordChar = '⚫';
             this.Txt_ConfPass.Size = new System.Drawing.Size(216, 20);
-            this.Txt_ConfPass.TabIndex = 11;
+            this.Txt_ConfPass.TabIndex = 3;
             // 
             // label3
             // 
@@ -107,7 +108,7 @@
             this.Txt_Username.Location = new System.Drawing.Point(159, 36);
             this.Txt_Username.Name = "Txt_Username";
             this.Txt_Username.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Username.TabIndex = 16;
+            this.Txt_Username.TabIndex = 1;
             // 
             // IPLabel
             // 
@@ -124,7 +125,7 @@
             this.Txt_ServerIP.Location = new System.Drawing.Point(159, 179);
             this.Txt_ServerIP.Name = "Txt_ServerIP";
             this.Txt_ServerIP.Size = new System.Drawing.Size(216, 20);
-            this.Txt_ServerIP.TabIndex = 18;
+            this.Txt_ServerIP.TabIndex = 4;
             this.Txt_ServerIP.Visible = false;
             // 
             // ForgetPassword
@@ -135,7 +136,7 @@
             this.Controls.Add(this.Txt_ServerIP);
             this.Controls.Add(this.IPLabel);
             this.Controls.Add(this.Txt_Username);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.AccountUpdate);
             this.Controls.Add(this.Txt_Password);
             this.Controls.Add(this.Txt_ConfPass);
@@ -152,7 +153,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button AccountUpdate;
         private System.Windows.Forms.TextBox Txt_Password;
         private System.Windows.Forms.TextBox Txt_ConfPass;

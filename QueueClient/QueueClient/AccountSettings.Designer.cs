@@ -75,14 +75,14 @@
             this.Txt_ConfPass.Name = "Txt_ConfPass";
             this.Txt_ConfPass.PasswordChar = '⚫';
             this.Txt_ConfPass.Size = new System.Drawing.Size(216, 20);
-            this.Txt_ConfPass.TabIndex = 3;
+            this.Txt_ConfPass.TabIndex = 5;
             // 
             // Txt_Username
             // 
             this.Txt_Username.Location = new System.Drawing.Point(155, 121);
             this.Txt_Username.Name = "Txt_Username";
             this.Txt_Username.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Username.TabIndex = 4;
+            this.Txt_Username.TabIndex = 3;
             // 
             // Txt_Password
             // 
@@ -90,7 +90,7 @@
             this.Txt_Password.Name = "Txt_Password";
             this.Txt_Password.PasswordChar = '⚫';
             this.Txt_Password.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Password.TabIndex = 5;
+            this.Txt_Password.TabIndex = 4;
             // 
             // AccountUpdate
             // 
@@ -126,14 +126,14 @@
             this.Txt_Firstname.Location = new System.Drawing.Point(155, 29);
             this.Txt_Firstname.Name = "Txt_Firstname";
             this.Txt_Firstname.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Firstname.TabIndex = 9;
+            this.Txt_Firstname.TabIndex = 1;
             // 
             // Txt_Lastname
             // 
             this.Txt_Lastname.Location = new System.Drawing.Point(155, 75);
             this.Txt_Lastname.Name = "Txt_Lastname";
             this.Txt_Lastname.Size = new System.Drawing.Size(216, 20);
-            this.Txt_Lastname.TabIndex = 10;
+            this.Txt_Lastname.TabIndex = 2;
             // 
             // label5
             // 
@@ -162,7 +162,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AccountSettings";

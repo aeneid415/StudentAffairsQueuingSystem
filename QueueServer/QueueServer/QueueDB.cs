@@ -35,17 +35,26 @@ namespace QueueServer
         {
             ArrayList queue = new ArrayList();
             MySqlDataReader reader = null;
-            string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
+            string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) AND deact_flag = 0 ORDER BY timestamp DESC Limit 1";
 
             MySqlCommand command = new MySqlCommand(query, tr);
 
 
             reader = command.ExecuteReader();
-            while (reader.Read())
+            if (!reader.HasRows)
             {
-                QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
+                QueueStat t = new QueueStat(0, 0);
                 queue.Add(t);
             }
+            else
+            {
+                while (reader.Read())
+                {
+                    QueueStat t = new QueueStat(reader.GetInt32(1), reader.GetInt32(2));
+                    queue.Add(t);
+                }
+            }
+            
             return queue;
         }
 
