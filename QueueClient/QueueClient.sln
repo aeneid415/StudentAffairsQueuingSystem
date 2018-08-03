@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueClient", "QueueClient\QueueClient.csproj", "{3FDE201A-4A89-49F8-A86F-E419384A31EA}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QueueClientSetup", "QueueClientSetup\QueueClientSetup.vdproj", "{56E3B60C-89A4-478C-9F36-8BBA2F2D1D64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{3FDE201A-4A89-49F8-A86F-E419384A31EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FDE201A-4A89-49F8-A86F-E419384A31EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FDE201A-4A89-49F8-A86F-E419384A31EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E3B60C-89A4-478C-9F36-8BBA2F2D1D64}.Debug|Any CPU.ActiveCfg = Debug
+		{56E3B60C-89A4-478C-9F36-8BBA2F2D1D64}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

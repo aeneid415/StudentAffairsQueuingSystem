@@ -31,6 +31,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Graphicloads-100-Flat-2-Bank.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>QueueClient.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -169,6 +175,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\slu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Graphicloads-100-Flat-2-Bank.ico" />
+    <Content Include="Resources\831f27b87729d0ff23d7a9c52d5facd8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

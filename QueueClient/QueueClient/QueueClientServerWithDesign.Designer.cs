@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueueClientServerWithDesign));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DateLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -450,6 +451,7 @@
             this.ClientSize = new System.Drawing.Size(803, 550);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QueueClientServerWithDesign";
             this.Text = "OSA Queuing System (Admin Module)";
             this.panel5.ResumeLayout(false);

@@ -1,0 +1,13 @@
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Release\QueueServer.exe.config
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Release\QueueServer.exe
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Release\QueueServer.pdb
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Release\MySql.Data.dll
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\bin\Release\MySql.Data.xml
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.QueueServer.resources
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.Properties.Resources.resources
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.QueueServerWithDesign.resources
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.csproj.GenerateResource.cache
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.csproj.CoreCompileInputs.cache
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.csproj.CopyComplete
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.exe
+C:\Users\Aeneid\source\repos\QueueServer\QueueServer\obj\Release\QueueServer.pdb

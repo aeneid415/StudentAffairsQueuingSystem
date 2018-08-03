@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminModule));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.AdminLogOut = new System.Windows.Forms.Button();
             this.ShowStat = new System.Windows.Forms.Button();
             this.dateLabel = new System.Windows.Forms.Label();
             this.cubInd1 = new System.Windows.Forms.Label();
@@ -40,6 +40,7 @@
             this.cubicle3 = new System.Windows.Forms.Label();
             this.cubicle2 = new System.Windows.Forms.Label();
             this.cubicle1 = new System.Windows.Forms.Label();
+            this.AdminLogOut = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.queuingServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.AdminLogOut, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.ShowStat, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dateLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.cubInd1, 0, 2);
@@ -70,6 +70,7 @@
             this.tableLayoutPanel1.Controls.Add(this.cubicle3, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.cubicle2, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.cubicle1, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.AdminLogOut, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -83,17 +84,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(543, 426);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // AdminLogOut
-            // 
-            this.AdminLogOut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AdminLogOut.Location = new System.Drawing.Point(390, 19);
-            this.AdminLogOut.Name = "AdminLogOut";
-            this.AdminLogOut.Size = new System.Drawing.Size(75, 23);
-            this.AdminLogOut.TabIndex = 1;
-            this.AdminLogOut.Text = "Log Out";
-            this.AdminLogOut.UseVisualStyleBackColor = true;
-            this.AdminLogOut.Click += new System.EventHandler(this.AdminLogOut_Click);
             // 
             // ShowStat
             // 
@@ -208,6 +198,17 @@
             this.cubicle1.Text = "0";
             this.cubicle1.Visible = false;
             // 
+            // AdminLogOut
+            // 
+            this.AdminLogOut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AdminLogOut.Location = new System.Drawing.Point(390, 19);
+            this.AdminLogOut.Name = "AdminLogOut";
+            this.AdminLogOut.Size = new System.Drawing.Size(75, 23);
+            this.AdminLogOut.TabIndex = 1;
+            this.AdminLogOut.Text = "Log Out";
+            this.AdminLogOut.UseVisualStyleBackColor = true;
+            this.AdminLogOut.Click += new System.EventHandler(this.AdminLogOut_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -247,14 +248,14 @@
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.createToolStripMenuItem.Text = "Create";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.editToolStripMenuItem.Text = "Edit Credentials";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -270,13 +271,13 @@
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -287,6 +288,7 @@
             this.ClientSize = new System.Drawing.Size(543, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminModule";
             this.Text = "AdminModule";

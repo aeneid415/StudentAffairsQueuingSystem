@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueuingClient));
             this.callStudent = new System.Windows.Forms.Button();
             this.clientLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,6 +38,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +48,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.NextButton = new System.Windows.Forms.Button();
             this.PrevButton = new System.Windows.Forms.Button();
-            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -135,9 +136,23 @@
             // editCredentialsToolStripMenuItem
             // 
             this.editCredentialsToolStripMenuItem.Name = "editCredentialsToolStripMenuItem";
-            this.editCredentialsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCredentialsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.editCredentialsToolStripMenuItem.Text = "Edit Profile";
             this.editCredentialsToolStripMenuItem.Click += new System.EventHandler(this.editCredentialsToolStripMenuItem_Click);
+            // 
+            // deactivateToolStripMenuItem
+            // 
+            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.deactivateToolStripMenuItem.Text = "Deactivate";
+            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
+            // 
+            // activateToolStripMenuItem
+            // 
+            this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
+            this.activateToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.activateToolStripMenuItem.Text = "Activate";
+            this.activateToolStripMenuItem.Click += new System.EventHandler(this.activateToolStripMenuItem_Click);
             // 
             // statisticsToolStripMenuItem
             // 
@@ -207,20 +222,6 @@
             this.PrevButton.UseVisualStyleBackColor = true;
             this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
-            // deactivateToolStripMenuItem
-            // 
-            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
-            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deactivateToolStripMenuItem.Text = "Deactivate";
-            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
-            // 
-            // activateToolStripMenuItem
-            // 
-            this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
-            this.activateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.activateToolStripMenuItem.Text = "Activate";
-            this.activateToolStripMenuItem.Click += new System.EventHandler(this.activateToolStripMenuItem_Click);
-            // 
             // QueuingClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +237,7 @@
             this.Controls.Add(this.callStudent);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "QueuingClient";
             this.Text = "Main Menu (Client)";

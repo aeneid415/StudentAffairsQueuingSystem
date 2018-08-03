@@ -41,7 +41,7 @@ CREATE TABLE `accounts` (
 
 LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES (1,'kaiser','prussians','Friedreich','Wilhelm','Service Cubicle'),(2,'joseph','stalin','Joseph','Stalin','Service Cubicle'),(3,'queen','united','Elizabeth','Mary','Service Cubicle'),(4,'cubicleNum4','cubicle4','John','Doe','Service Cubicle'),(5,'admin','admins','Andrew','Macalma','Admin'),(6,'hello','aaa','Triceayn','Prestousa','Admin');
+INSERT INTO `accounts` VALUES (1,'cubicleNum1','cubicle1','Donald','Trump','Service Cubicle'),(2,'cubicleNum2','cubicle2','Rodrigo','Duterte','Service Cubicle'),(3,'cubicleNum3','cubicle3','Xi','Jinping','Service Cubicle'),(4,'cubicleNum4','cubicle4','Vladimir','Putin','Service Cubicle'),(5,'admin','admin','Andrew','Macalma','Admin'),(6,'admin2','admin2','Triceayn','Prestousa','Admin');
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `queue_stat` (
   `timestamp` datetime(1) NOT NULL,
   `deact_flag` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`queue_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,6 @@ CREATE TABLE `queue_stat` (
 
 LOCK TABLES `queue_stat` WRITE;
 /*!40000 ALTER TABLE `queue_stat` DISABLE KEYS */;
-INSERT INTO `queue_stat` VALUES (1,3,1,'2018-08-02 16:12:06.9',0),(2,1,2,'2018-08-02 16:12:10.5',0),(3,1,3,'2018-08-02 16:12:14.5',0),(4,1,4,'2018-08-02 16:12:18.2',0),(5,3,5,'2018-08-02 16:12:21.9',0),(7,1,6,'2018-08-02 16:12:46.4',0),(8,1,7,'2018-08-02 16:12:50.0',0),(10,1,8,'2018-08-02 16:14:59.2',0),(11,2,9,'2018-08-02 16:16:50.3',0),(15,2,10,'2018-08-02 16:21:44.7',0),(17,2,11,'2018-08-02 16:23:55.8',0),(22,4,12,'2018-08-02 16:32:17.3',0),(23,4,13,'2018-08-02 16:32:21.5',0),(24,4,14,'2018-08-02 16:32:25.6',0),(26,4,15,'2018-08-02 16:34:21.2',0),(29,2,16,'2018-08-02 16:53:25.7',0),(30,2,17,'2018-08-02 16:53:29.9',0),(31,2,18,'2018-08-02 16:53:36.3',0);
 /*!40000 ALTER TABLE `queue_stat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,6 +95,154 @@ LOCK TABLES `recalled_records` WRITE;
 /*!40000 ALTER TABLE `recalled_records` DISABLE KEYS */;
 /*!40000 ALTER TABLE `recalled_records` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'osa_queuing'
+--
+/*!50106 SET @save_time_zone= @@TIME_ZONE */ ;
+/*!50106 DROP EVENT IF EXISTS `refresh_queue` */;
+DELIMITER ;;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;;
+/*!50003 SET character_set_client  = utf8mb4 */ ;;
+/*!50003 SET character_set_results = utf8mb4 */ ;;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;;
+/*!50003 SET @saved_time_zone      = @@time_zone */ ;;
+/*!50003 SET time_zone             = 'SYSTEM' */ ;;
+/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `refresh_queue` ON SCHEDULE EVERY 3 DAY STARTS '2018-08-03 00:00:00' ON COMPLETION PRESERVE ENABLE DO TRUNCATE queue_stat */ ;;
+/*!50003 SET time_zone             = @saved_time_zone */ ;;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;;
+/*!50003 SET character_set_results = @saved_cs_results */ ;;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;;
+DELIMITER ;
+/*!50106 SET TIME_ZONE= @save_time_zone */ ;
+
+--
+-- Dumping routines for database 'osa_queuing'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `act_account` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `act_account`(IN num int(11))
+BEGIN
+	DELETE FROM queue_stat WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) AND deact_flag = 1 ORDER BY queue_id DESC LIMIT 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deact_account` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deact_account`(IN num int(11))
+BEGIN
+	INSERT INTO queue_stat (cubicle_number, serving_number, timestamp, deact_flag) VALUES (num, 0, now(), 1);
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `insert_mult_recalls` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_mult_recalls`(IN num int(11))
+BEGIN
+	INSERT INTO recalled_records (queue_id, cubicle_number, serving_number, timestamp) (SELECT queue_id, cubicle_number, serving_number, timestamp FROM queue_stat WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id DESC);
+    DELETE FROM queue_stat WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `insert_recall` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_recall`(IN num int(11))
+BEGIN
+	INSERT INTO recalled_records (queue_id, cubicle_number, serving_number, timestamp) (SELECT queue_id, cubicle_number, serving_number, timestamp FROM queue_stat WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id DESC LIMIT 1);
+    DELETE FROM queue_stat WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id DESC LIMIT 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `remove_mult_recall` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `remove_mult_recall`(IN num int(11))
+BEGIN	
+	INSERT INTO queue_stat (queue_id, cubicle_number, serving_number, timestamp) (SELECT * FROM recalled_records WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id DESC);
+    DELETE FROM recalled_records WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `remove_recall` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `remove_recall`(IN num int(11))
+BEGIN
+	INSERT INTO queue_stat (queue_id, cubicle_number, serving_number, timestamp) (SELECT * FROM recalled_records WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id LIMIT 1);
+    DELETE FROM recalled_records WHERE cubicle_number = num AND DATE(timestamp) = DATE(now()) ORDER BY queue_id LIMIT 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -106,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-02 17:01:49
+-- Dump completed on 2018-08-03 21:45:35

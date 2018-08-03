@@ -28,8 +28,18 @@ namespace QueueClient
             /* Get the last number of the cubicle (on startup) */
             using (MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                mysqlCon.Open();
-                currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+                try
+                {
+                    mysqlCon.Open();
+                    currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+                }
+                catch (MySqlException)
+                {
+                    MessageBox.Show("You have disconnected from the server.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+
+                }
+
 
             }
             /* Check if there are recalled records as of today (on startup). See the method below. */
@@ -182,11 +192,20 @@ namespace QueueClient
         {
             using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=" + ip + ";Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                mysqlCon.Open();
-                InsertToRecall(Emp.empId);
-                currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
-                FirstCheck();
-                SecondCheck();
+                try
+                {
+                    mysqlCon.Open();
+                    InsertToRecall(Emp.empId);
+                    currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+                    FirstCheck();
+                    SecondCheck();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("You have disconnected from the server.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+                
                 
             }
         }
@@ -209,7 +228,7 @@ namespace QueueClient
             {
                 callStudent.Enabled = false;
                 NextButton.Enabled = true;
-                activateToolStripMenuItem.Enabled = false;
+                activateToolStripMenuItem.Enabled = true;
                 deactivateToolStripMenuItem.Enabled = false;
             }
             else
@@ -246,13 +265,22 @@ namespace QueueClient
         {
             using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=" + ip + ";Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                mysqlCon.Open();
-                DeleteFromRecall(Emp.empId);
-                currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
-                FirstCheck();
+                try
+                {
+                    mysqlCon.Open();
+                    DeleteFromRecall(Emp.empId);
+                    currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+                    FirstCheck();
 
 
-                SecondCheck();
+                    SecondCheck();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("You have disconnected from the server.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+                
             }
         }
 
@@ -451,21 +479,51 @@ namespace QueueClient
 
         private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InsertToMultRecall(Emp.empId);
-            DeactivateCubicle(Emp.empId);
-            ThirdCheck();
-            currentNumber.Text = "N/A";
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=" + ip + ";Database=osa_queuing;Uid=root;Pwd=;"))
+            {
+                try
+                {
+                    mysqlCon.Open();
+                    InsertToMultRecall(Emp.empId);
+                    DeactivateCubicle(Emp.empId);
+                    ThirdCheck();
+                    currentNumber.Text = "N/A";
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("You have disconnected from the server.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+                finally
+                {
+                    mysqlCon.Close();
+                }
+            }
+            
         }
 
         private void activateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ActivateCubicle(Emp.empId);
-            DeleteFromMultRecall(Emp.empId);
-            ThirdCheck();
             using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=" + ip + ";Database=osa_queuing;Uid=root;Pwd=;"))
             {
-                mysqlCon.Open();
-                currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+                try
+                {
+                    mysqlCon.Open();
+                    ActivateCubicle(Emp.empId);
+                    DeleteFromMultRecall(Emp.empId);
+                    ThirdCheck();
+                    currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("You have disconnected from the server.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+                finally
+                {
+                    mysqlCon.Close();
+                }
+
             }
         }
     }

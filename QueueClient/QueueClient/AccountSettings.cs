@@ -85,7 +85,7 @@ namespace QueueClient
                         cmd.Parameters.AddWithValue("@accountid", Emp.empId);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Your account has successfully updated!", "Account Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Application.ExitThread();
+                        this.Close();
                     }
                     
                 }

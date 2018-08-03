@@ -15,20 +15,16 @@ namespace QueueClient
         static String ip = Emp.IPAddress;
 
 
-        
-       
-        
-
         public static ArrayList gatherData(MySqlConnection con)
         {
             try
             {
                 ArrayList queue = new ArrayList();
                 MySqlDataReader reader = null;
-                string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) ORDER BY timestamp DESC Limit 1";
+                string query = "SELECT * FROM osa_queuing.queue_stat WHERE date(timestamp) = date(now()) AND deact_flag = 0 ORDER BY timestamp DESC Limit 1";
 
                 MySqlCommand command = new MySqlCommand(query, con);
-
+                
 
                 reader = command.ExecuteReader();
                 if (!reader.HasRows)

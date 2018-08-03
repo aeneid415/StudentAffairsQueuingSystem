@@ -41,7 +41,7 @@ namespace QueueClient
                         cmd.Parameters.AddWithValue("@lastname", Txt_Lastname.Text);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Your account was successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Application.ExitThread();
+                        this.Close();
                     }
                 }catch (Exception)
                 {

@@ -102,7 +102,7 @@ namespace QueueClient
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Invalid IP Address. Please try again.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid IP Address (or your server is out). Please try again.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
 

@@ -19,9 +19,10 @@ namespace QueueClient
         Color blinker = Color.FromArgb(245, 0, 0);
         Color black = Color.Black;
         private static int x;
-        private static String y;
-        
+        private static String y;        
         private static ArrayList l = new ArrayList();
+
+        /*Exclusive to Client Module*/
         private static String ip = Emp.IPAddress;
 
         public QueueClientServerWithDesign()
@@ -77,13 +78,13 @@ namespace QueueClient
             {
                 timer1.Stop();
                 MessageBox.Show("The connection to the database server has either terminated abruptly or it doesn't exist.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
+                this.Close();
             }
         }
 
         private void checkLastNumbers()
         {
-            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;"))
+            using (MySqlConnection mysqlCon = new MySqlConnection(@"Server="+ip+";Database=osa_queuing;Uid=root;Pwd=;"))
             {
                 for (int i = 1; i <= 4; i++)
                 {
@@ -97,7 +98,14 @@ namespace QueueClient
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        z = reader.GetInt32(2).ToString();
+                        if (reader.GetInt32(4) == 1)
+                        {
+                            z = "N/A";
+                        }
+                        else
+                        {
+                            z = reader.GetInt32(2).ToString();
+                        }
                     }
 
                     switch (i)

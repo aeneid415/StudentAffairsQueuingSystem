@@ -14,22 +14,7 @@ namespace QueueServer
     {
         static MySqlConnection mysqlCon = new MySqlConnection(@"Server=localhost;Database=osa_queuing;Uid=root;Pwd=;");
 
-        public static void setCon()
-        {
-            try
-            {
-                mysqlCon.Open();
-            }catch(Exception e)
-            {
-                MessageBox.Show("Cannot Connect to Server", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
-        }
-
-        public static void connectionClose()
-        {
-            mysqlCon.Close();
-        }
+        
 
         public static ArrayList gatherData(MySqlConnection tr)
         {
