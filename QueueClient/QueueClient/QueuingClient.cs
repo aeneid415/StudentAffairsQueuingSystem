@@ -170,8 +170,8 @@ namespace QueueClient
                     QueueDB.addQueue(qs);
                     currentNumber.Text = QueueDB.getLastServed(Emp.empId.ToString(), mysqlCon);
                     FirstCheck();
-                    await Task.Delay(3000);
-                    
+                    await TaskEx.Delay(3000);
+
                 }
                 catch (Exception ex)
                 {

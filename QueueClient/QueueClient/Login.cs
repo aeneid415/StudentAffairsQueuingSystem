@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
 
 namespace QueueClient
@@ -49,7 +50,7 @@ namespace QueueClient
 
                     MySqlCommand command = new MySqlCommand(query, mysqlCon);
                     command.Parameters.AddWithValue("@username", txt_username.Text);
-                    command.Parameters.AddWithValue("@password", txt_password.Text);
+                    command.Parameters.AddWithValue("@password", GetPasswordHashed(txt_password.Text));
                     command.Parameters.AddWithValue("@department", txt_department.Text);
                     reader = command.ExecuteReader();
                     String access = txt_department.Text;
@@ -115,6 +116,39 @@ namespace QueueClient
         {
             ForgetPassword f = new ForgetPassword();
             f.ShowDialog();
+        }
+
+        private String GetPasswordHashed(String source)
+        {
+            using (MD5 md5hash = MD5.Create())
+            {
+                string hash = GetMd5Hash(md5hash, source);
+
+                return VerifyMd5Hash(md5hash, source, hash) ? hash : null;
+            }
+        }
+
+        private bool VerifyMd5Hash(MD5 md5hash, string source, string hash)
+        {
+            string hashOfInput = GetMd5Hash(md5hash, source);
+
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+
+            return comparer.Compare(hashOfInput, hash) == 0 ? true : false;
+
+
+        }
+
+        static string GetMd5Hash(MD5 md5hash, string source)
+        {
+            byte[] data = md5hash.ComputeHash(Encoding.UTF8.GetBytes(source));
+            StringBuilder sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            return sBuilder.ToString();
         }
     }
 }

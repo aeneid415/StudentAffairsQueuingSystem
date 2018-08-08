@@ -20,3 +20,16 @@ C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.cspro
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.exe
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.pdb
 C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.csprojAssemblyReference.cache
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\System.IO.dll
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\System.Runtime.dll
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\System.Threading.Tasks.dll
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\System.IO.xml
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\System.Runtime.xml
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\bin\Debug\System.Threading.Tasks.xml
+C:\Users\Aeneid\source\repos\QueueClient\QueueClient\obj\Debug\QueueClient.csproj.App.config
